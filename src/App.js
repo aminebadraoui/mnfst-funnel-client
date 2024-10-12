@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div>
-      <h1>mnfst-starter</h1>
+      <h1>mnfst-funnel</h1>
 
     </div>
 

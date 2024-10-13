@@ -15,7 +15,7 @@ function Login() {
         setError('');
 
         try {
-            const response = await fetch('http://localhost:5000/api/auth/login', {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -38,6 +38,12 @@ function Login() {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-950 py-12 px-4 sm:px-6 lg:px-8">
+            <div className="absolute top-6 left-6">
+                <Link to="/" className="text-2xl font-bold text-white hover:text-gray-300">
+                    MNFST Funnels
+                </Link>
+            </div>
+
             <div className="max-w-md w-full space-y-8">
                 <div>
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-50">

@@ -13,6 +13,7 @@ import Login from './components/Login';
 import useAuthStore from './stores/authStore';
 import SignUp from './components/SignUp';
 import ForgotPassword from './components/ForgotPassword';
+import LandingPage from './components/LandingPage';
 
 const mockLeads = [
   { id: '1', firstName: 'John', lastName: 'Doe', email: 'john@example.com', phone: '123-456-7890', notes: 'Interested in Pro Plan', currentStep: 'Awareness' },
@@ -34,6 +35,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -45,7 +47,7 @@ function App() {
           <Route index element={<Navigate to="designer" replace />} />
           <Route path="designer" element={<Designer />} />
           <Route path="funnels" element={<FunnelList />} />
-          <Route path="crm" element={<CRM leads={mockLeads} />} />
+          <Route path="crm" element={<CRM />} />
         </Route>
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>

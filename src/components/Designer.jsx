@@ -32,7 +32,7 @@ function Designer() {
             throw new Error('No authentication token found');
         }
 
-        const checkResponse = await fetch(`http://localhost:5000/api/funnels/check/${currentFunnelName}`, {
+        const checkResponse = await fetch(`${process.env.REACT_APP_API_URL}/funnels/check/${currentFunnelName}`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -75,8 +75,8 @@ function Designer() {
 
             const method = override ? 'PUT' : 'POST';
             const url = override
-                ? `http://localhost:5000/api/funnels/${funnelName}`
-                : 'http://localhost:5000/api/funnels';
+                ? `${process.env.REACT_APP_API_URL}/funnels/${funnelName}`
+                : `${process.env.REACT_APP_API_URL}/funnels`;
 
             const response = await fetch(url, {
                 method: method,

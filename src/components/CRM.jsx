@@ -48,7 +48,7 @@ function CRM() {
     const fetchLeads = async (funnelId) => {
         setIsLoading(true);
         try {
-            const response = await fetch(`http://localhost:5000/api/leads?funnelId=${funnelId}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/leads?funnelId=${funnelId}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },
@@ -88,7 +88,7 @@ function CRM() {
 
     const updateLeadStep = async (leadId, newStep) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/leads/${leadId}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/leads/${leadId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ function CRM() {
 
     const addNewLead = async (newLead) => {
         try {
-            const response = await fetch('http://localhost:5000/api/leads', {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/leads`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
